@@ -111,7 +111,7 @@ void process_inbound_udp(int sock) {
             break;
         }
     }
-
+    memset(buf,0,PACKETLEN);
     printf("PROCESS_INBOUND_UDP SKELETON -- replace!\n"
            "Incoming message from %s:%d\n%s\n\n",
             inet_ntoa(from.sin_addr),
