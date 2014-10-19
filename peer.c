@@ -26,7 +26,7 @@
 #include "chunk.h"
 
 /* Function Prototypes */
-void peer_run(bt_config_t *config);
+void peer_run();
 void freeJob(job_t* job);
 void init_hasChunk(char* has_chunk_file);
 
