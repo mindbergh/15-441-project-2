@@ -2,7 +2,7 @@
  * peer.c
  *
  * Authors: Ming Fang <mingf@andrew.cmu.edu>,
- *          Yao Zhou <>
+ *          Yao Zhou <yaozhou@andrew.cmu.edu>
  *          
  * Class: 15-441 (Fall 2014)
  *
