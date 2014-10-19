@@ -79,7 +79,10 @@ void process_inbound_udp(int sock) {
             // Construct I have response pkt
             data_packet_t* pkt = IHave_maker((data_packet_t*)buf);
             // Send it back
+            if( pkt != NULL)
+                fprintf(stderr, "get here1\n");
             packet_sender(pkt, (struct sockaddr *) &from);
+            fprintf(stderr, "get here2\n");
             packet_free(pkt);
             break;
         }
