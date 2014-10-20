@@ -2,7 +2,7 @@
  * peer.c
  *
  * Authors: Ming Fang <mingf@andrew.cmu.edu>,
- *          Yao Zhou <>
+ *          Yao Zhou <yaozhou@andrew.cmu.edu>
  *          
  * Class: 15-441 (Fall 2014)
  *
@@ -79,7 +79,10 @@ void process_inbound_udp(int sock) {
             // Construct I have response pkt
             data_packet_t* pkt = IHave_maker((data_packet_t*)buf);
             // Send it back
+            if( pkt != NULL)
+                fprintf(stderr, "get here1\n");
             packet_sender(pkt, (struct sockaddr *) &from);
+            fprintf(stderr, "get here2\n");
             packet_free(pkt);
             break;
         }
@@ -108,7 +111,7 @@ void process_inbound_udp(int sock) {
             break;
         }
     }
-
+    memset(buf,0,PACKETLEN);
     printf("PROCESS_INBOUND_UDP SKELETON -- replace!\n"
            "Incoming message from %s:%d\n\n",
             inet_ntoa(from.sin_addr),

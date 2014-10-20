@@ -182,6 +182,7 @@ data_packet_t *IHave_maker(data_packet_t *whohas_pkt) {
  */
 int IfIHave(uint8_t *hash_start) {
     int i;
+    int have = 0;
     node_t *node;
     chunk_t* this_chunk;
     if (hasChunk->n == 0)
@@ -192,11 +193,11 @@ int IfIHave(uint8_t *hash_start) {
         this_chunk = (chunk_t *)node->data;
         if (memcmp(hash_start, this_chunk->hash, SHA1_HASH_SIZE)) {
             node = node->next;
+            have = 1;
             continue;
         }                
-        return 1;
     }
-    return 0;
+    return have;
 }
 
 
